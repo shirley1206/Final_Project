@@ -168,11 +168,11 @@ def get_housing():
 get_housing()
 
 
-outfile = open("Housing.csv","w")
-outfile.write('Name,Address,Bed,Bath,Type,Rent,Status,Pet,Parking,Url\n')
-for i in get_housing():
-    outfile.write('{},{},{},{},{},{},{},{},{},{}\n'.format("\""+i.name+"\"","\""+i.address+"\"","\""+i.bed+"\"","\""+i.bath+"\"","\""+i.type+"\"","\""+i.rent+"\"","\""+i.status+"\"","\""+i.pet+"\"","\""+i.parking+"\"","\""+i.url+"\""))
-outfile.close()
+# outfile = open("Housing.csv","w")
+# outfile.write('Name,Address,Bed,Bath,Type,Rent,Status,Pet,Parking,Url\n')
+# for i in get_housing():
+#     outfile.write('{},{},{},{},{},{},{},{},{},{}\n'.format("\""+i.name+"\"","\""+i.address+"\"","\""+i.bed+"\"","\""+i.bath+"\"","\""+i.type+"\"","\""+i.rent+"\"","\""+i.status+"\"","\""+i.pet+"\"","\""+i.parking+"\"","\""+i.url+"\""))
+# outfile.close()
 
 DBNAME = 'housing.db'
 
@@ -223,9 +223,9 @@ def populate_housing_db():
     'ID' INTEGER PRIMARY KEY AUTOINCREMENT,
     'Housing' TEXT,
     'Address' TEXT,
-    'BuildingTypeId' INTEGER
     'Bed' TEXT,
     'Bath' TEXT,
+    'BuildingTypeId' INTEGER,
     'Rent' TEXT,
     'Status' TEXT,
     'PetPolicyId' INTEGER,
@@ -267,6 +267,8 @@ def populate_housing_db():
 
     cur.execute(statement)
 
+
+
     with open('Building_type.csv') as csvDataFile:
         csvReader = csv.reader(csvDataFile)
         next(csvReader)
@@ -276,7 +278,16 @@ def populate_housing_db():
             statement = 'INSERT INTO "BuildingType"'
             statement += "VALUES (?,?)"
             cur.execute(statement, insertion)
+    statement = '''
+    SELECT ID, Type FROM BuildingType
+    '''
+    building_type_id_list = cur.execute(statement).fetchall()
 
+    building_type_dict = {}
+    for i in building_type_id_list:
+        building_type_dict[i[1]] = i[0]
+
+    print(building_type_dict)
 
     with open('Parking.csv') as csvDataFile:
         csvReader = csv.reader(csvDataFile)
@@ -288,6 +299,15 @@ def populate_housing_db():
             statement += "VALUES (?,?)"
             cur.execute(statement, insertion)
 
+    statement = '''
+    SELECT ID, Type FROM Parking
+    '''
+    parking_type_id_list = cur.execute(statement).fetchall()
+
+    parking_type_dict = {}
+    for i in parking_type_id_list:
+        parking_type_dict[i[1]] = i[0]
+    # print(parking_type_dict)
 
     with open('Pet_policy.csv') as csvDataFile:
         csvReader = csv.reader(csvDataFile)
@@ -299,75 +319,28 @@ def populate_housing_db():
             statement += "VALUES (?,?)"
             cur.execute(statement, insertion)
 
+    statement = '''
+    SELECT ID, Policy FROM Pet
+    '''
+    pet_id_list = cur.execute(statement).fetchall()
 
-    # statement = '''
-    # SELECT ID, Type FROM BuildingType
-    # '''
-    # building_type_id_list = cur.execute(statement).fetchall()
-    #
-    # building_type_dict = {}
-    # for i in building_type_id_list:
-    #     building_type_dict[i[1]] = i[0]
-    #
-    # statement = '''
-    # SELECT ID, Type FROM Parking
-    # '''
-    # parking_type_id_list = cur.execute(statement).fetchall()
-    #
-    # parking_type_dict = {}
-    # for i in parking_type_id_list:
-    #     parking_type_dict[i[1]] = i[0]
-    #
-    #
-    # statement = '''
-    # SELECT ID, Policy FROM Pet
-    # '''
-    # pet_id_list = cur.execute(statement).fetchall()
-    #
-    # pet_id_dict = {}
-    # for i in pet_id_list:
-    #     pet_id_dict[i[1]] = i[0]
+    pet_id_dict = {}
+    for i in pet_id_list:
+        pet_id_dict[i[1]] = i[0]
+    # print(pet_id_dict)
 
+    with open('Housing.csv') as csvDataFile:
+        csvReader = csv.reader(csvDataFile)
+        next(csvReader)
+        for row in csvReader:
+            BuildingTypeId = building_type_dict[row[4]]
+            ParkingId = parking_type_dict[row[8]]
+            PetId = pet_id_dict[row[7]]
 
-    #
-    # with open('Housing.csv') as csvDataFile:
-    #     csvReader = csv.reader(csvDataFile)
-    #     next(csvReader)
-    #     for row in csvReader:
-    #         BuildingTypeId = building_type_dict[row[5]]
-    #         ParkingId =
-    #         PetId =
-
-
-
-
-#     statement = '''
-# #     SELECT ID, EnglishName FROM Countries
-# #     '''
-#     country_id_list = cur.execute(statement).fetchall()
-#     # print(country_id_list)
-#     country_dict = {}
-#     for i in country_id_list:
-#         country_dict[i[1]] = i[0]
-#     # print(country_dict)
-#
-#     with open(BARSCSV) as csvDataFile:
-#         csvReader = csv.reader(csvDataFile)
-#         next(csvReader)
-#         for row in csvReader:
-#             # print(row[8])
-#             CompanyLocationId = country_dict[row[5]]
-#             # print(CompanyLocationId)
-#             try:
-#                 BroadBeanOriginId = country_dict[row[8]]
-#             except:
-#                 BroadBeanOriginId = ""
-#
-#             cocoapercentage = float(row[4].strip('%'))/100
-#             insertion = (None, row[0], row[1], row[2], row[3], cocoapercentage, CompanyLocationId, row[6], row[7], BroadBeanOriginId)
-#             statement = 'INSERT INTO "Bars"'
-#             statement += "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? ,?)"
-#             cur.execute(statement, insertion)
+            insertion = (None, row[0], row[1], row[2], row[3], BuildingTypeId, row[5], row[6], PetId, ParkingId, row[9])
+            statement = 'INSERT INTO "Housing"'
+            statement += "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            cur.execute(statement, insertion)
 
     conn.commit()
     conn.close()

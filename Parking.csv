@@ -1,6 +1,10 @@
 ID,Parking
 1,Garage Parking
 2,On-Street Parking
-3,"Off-Street Parking
-"
-4,No Parking
+3,Off-Street Parking
+4,"Garage Parking, Off-Street Parking"
+5,"Off-Street Parking, On-Street Parking"
+6,"Garage Parking, On-Street Parking"
+7,"Garage Parking, Off-Street Parking, On-Street Parking"
+8,Not listed
+9,No parking
