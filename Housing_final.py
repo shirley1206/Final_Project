@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import sqlite3
+import sqlite3 as sqlite
 from secrets import google_places_key
 import csv
 
@@ -9,8 +10,8 @@ import csv
 
 class HouseListing:
 
-    def __init__(self, id, name, address=None, url=None, desc=None, rent=None, status=None, pet=None, bed=None, bath=None, parking=None, lat=None, lon=None):
-        self.id = str(id)
+    def __init__(self, name, address=None, url=None, desc=None, rent=None, status=None, pet=None, bed=None, bath=None, housetype=None, parking=None, lat=None, lon=None):
+
         self.name = name
         self.address = address
         self.url = url
@@ -20,12 +21,13 @@ class HouseListing:
         self.pet = pet
         self.bed = bed
         self.bath = bath
+        self.type = housetype
         self.parking = parking
         self.lat = lat
         self.lon = lon
 
     def __str__(self):
-        housing_str = str(self.id)+'\n\t'+self.name+'\n\t'+self.address+'\n\t'+self.bed+"/"+self.bath+'\n\t'+self.rent+'\n\t'+self.status+"\n\t"+self.parking+"\n\t"+self.pet
+        housing_str = self.name+'\n\t'+self.address+'\n\t'+self.bed+"/"+self.bath+'\n\t'+self.type+'\n\t'+self.rent+'\n\t'+self.status+"\n\t"+self.parking+"\n\t"+self.pet
         return housing_str
 
 
@@ -131,7 +133,6 @@ def get_housing():
         house_info = page_soup.find(id='main')
         house_info_list.append(house_info)
 
-    house_id = 0
     for house in house_info_list:
         house_name = house.find(class_="title").text.strip()
         house_desc = house.find(class_="dborder-top").find("div").text
@@ -141,7 +142,7 @@ def get_housing():
         house_status = house.find(class_="other-info").find("div").text.strip()
         house_bed = house.find(class_="numbers").find_all("strong")[1].text.strip()
         house_bath = house.find(class_="numbers").find_all("strong")[2].text.strip()
-        house_id = house_id+1
+        house_type = house.find(class_="numbers").find_all('div')[1].text.strip().split()[-1]
 
 
         try:
@@ -157,8 +158,8 @@ def get_housing():
             house_pet = "Not listed"
             house_parking = "Not listed"
 
-        house_inc = HouseListing(house_id, house_name, house_address, house_url, house_desc,  house_rent, house_status, house_pet, house_bed, house_bath, house_parking, house_lat, house_lon)
-        # print(house_inc.__str__())
+        house_inc = HouseListing(house_name, house_address, house_url, house_desc,  house_rent, house_status, house_pet, house_bed, house_bath, house_type, house_parking, house_lat, house_lon)
+        # print(house_inc.type)
         house_ins_list.append(house_inc)
     # print(house_ins_list)
     return house_ins_list
@@ -168,8 +169,210 @@ get_housing()
 
 
 outfile = open("Housing.csv","w")
-outfile.write('Id,Name,Address,Bed,Bath,Rent,Status,Pet,Parking,Url\n')
+outfile.write('Name,Address,Bed,Bath,Type,Rent,Status,Pet,Parking,Url\n')
 for i in get_housing():
-    outfile.write('{},{},{},{},{},{},{},{},{},{}\n'.format("\""+i.id+"\"","\""+i.name+"\"","\""+i.address+"\"","\""+i.bed+"\"","\""+i.bath+"\"","\""+i.rent+"\"","\""+i.status+"\"","\""+i.pet+"\"","\""+i.parking+"\"","\""+i.url+"\""))
+    outfile.write('{},{},{},{},{},{},{},{},{},{}\n'.format("\""+i.name+"\"","\""+i.address+"\"","\""+i.bed+"\"","\""+i.bath+"\"","\""+i.type+"\"","\""+i.rent+"\"","\""+i.status+"\"","\""+i.pet+"\"","\""+i.parking+"\"","\""+i.url+"\""))
 outfile.close()
 
+DBNAME = 'housing.db'
+
+
+def create_housing_db():
+    # Your code goes here
+    conn = sqlite.connect(DBNAME)
+    cur = conn.cursor()
+
+    statement = '''
+        DROP TABLE IF EXISTS 'Housing';
+    '''
+    cur.execute(statement)
+
+    statement = '''
+        DROP TABLE IF EXISTS 'Parking';
+    '''
+    cur.execute(statement)
+
+    statement = '''
+        DROP TABLE IF EXISTS 'Pet';
+    '''
+    cur.execute(statement)
+
+    statement = '''
+        DROP TABLE IF EXISTS 'BuildingType';
+    '''
+    cur.execute(statement)
+
+    if conn:
+        pass
+    else:
+        print("Failed to create database")
+
+    conn.commit()
+    conn.close()
+
+
+
+def populate_housing_db():
+
+    conn = sqlite.connect(DBNAME)
+    cur = conn.cursor()
+
+    statement = '''
+
+    CREATE Table 'Housing'(
+    'ID' INTEGER PRIMARY KEY AUTOINCREMENT,
+    'Housing' TEXT,
+    'Address' TEXT,
+    'BuildingTypeId' INTEGER
+    'Bed' TEXT,
+    'Bath' TEXT,
+    'Rent' TEXT,
+    'Status' TEXT,
+    'PetPolicyId' INTEGER,
+    'ParkingId' INTEGER,
+    'URL' TEXT
+    );
+
+    '''
+
+    cur.execute(statement)
+
+    statement = '''
+    CREATE Table 'BuildingType'(
+    'ID' INTEGER PRIMARY KEY AUTOINCREMENT,
+    'Type' TEXT
+    );
+
+    '''
+
+    cur.execute(statement)
+
+    statement = '''
+    CREATE Table 'Parking'(
+    'ID' INTEGER PRIMARY KEY AUTOINCREMENT,
+    'Type' TEXT
+    );
+
+    '''
+
+    cur.execute(statement)
+
+    statement = '''
+    CREATE Table 'Pet'(
+    'ID' INTEGER PRIMARY KEY AUTOINCREMENT,
+    'Policy' TEXT
+    );
+
+    '''
+
+    cur.execute(statement)
+
+    with open('Building_type.csv') as csvDataFile:
+        csvReader = csv.reader(csvDataFile)
+        next(csvReader)
+
+        for row in csvReader:
+            insertion = (None, row[1])
+            statement = 'INSERT INTO "BuildingType"'
+            statement += "VALUES (?,?)"
+            cur.execute(statement, insertion)
+
+
+    with open('Parking.csv') as csvDataFile:
+        csvReader = csv.reader(csvDataFile)
+        next(csvReader)
+
+        for row in csvReader:
+            insertion = (None, row[1])
+            statement = 'INSERT INTO "Parking"'
+            statement += "VALUES (?,?)"
+            cur.execute(statement, insertion)
+
+
+    with open('Pet_policy.csv') as csvDataFile:
+        csvReader = csv.reader(csvDataFile)
+        next(csvReader)
+
+        for row in csvReader:
+            insertion = (None, row[1])
+            statement = 'INSERT INTO "Pet"'
+            statement += "VALUES (?,?)"
+            cur.execute(statement, insertion)
+
+
+    # statement = '''
+    # SELECT ID, Type FROM BuildingType
+    # '''
+    # building_type_id_list = cur.execute(statement).fetchall()
+    #
+    # building_type_dict = {}
+    # for i in building_type_id_list:
+    #     building_type_dict[i[1]] = i[0]
+    #
+    # statement = '''
+    # SELECT ID, Type FROM Parking
+    # '''
+    # parking_type_id_list = cur.execute(statement).fetchall()
+    #
+    # parking_type_dict = {}
+    # for i in parking_type_id_list:
+    #     parking_type_dict[i[1]] = i[0]
+    #
+    #
+    # statement = '''
+    # SELECT ID, Policy FROM Pet
+    # '''
+    # pet_id_list = cur.execute(statement).fetchall()
+    #
+    # pet_id_dict = {}
+    # for i in pet_id_list:
+    #     pet_id_dict[i[1]] = i[0]
+
+
+    #
+    # with open('Housing.csv') as csvDataFile:
+    #     csvReader = csv.reader(csvDataFile)
+    #     next(csvReader)
+    #     for row in csvReader:
+    #         BuildingTypeId = building_type_dict[row[5]]
+    #         ParkingId =
+    #         PetId =
+
+
+
+
+#     statement = '''
+# #     SELECT ID, EnglishName FROM Countries
+# #     '''
+#     country_id_list = cur.execute(statement).fetchall()
+#     # print(country_id_list)
+#     country_dict = {}
+#     for i in country_id_list:
+#         country_dict[i[1]] = i[0]
+#     # print(country_dict)
+#
+#     with open(BARSCSV) as csvDataFile:
+#         csvReader = csv.reader(csvDataFile)
+#         next(csvReader)
+#         for row in csvReader:
+#             # print(row[8])
+#             CompanyLocationId = country_dict[row[5]]
+#             # print(CompanyLocationId)
+#             try:
+#                 BroadBeanOriginId = country_dict[row[8]]
+#             except:
+#                 BroadBeanOriginId = ""
+#
+#             cocoapercentage = float(row[4].strip('%'))/100
+#             insertion = (None, row[0], row[1], row[2], row[3], cocoapercentage, CompanyLocationId, row[6], row[7], BroadBeanOriginId)
+#             statement = 'INSERT INTO "Bars"'
+#             statement += "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? ,?)"
+#             cur.execute(statement, insertion)
+
+    conn.commit()
+    conn.close()
+#
+
+
+create_housing_db()
+populate_housing_db()
