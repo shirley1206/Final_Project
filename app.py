@@ -15,6 +15,14 @@ def housing():
     return render_template("housing.html", housing=housing)
 
 
+@app.route('/map', methods=['GET', 'POST'])
+def map():
+    map = model.maponplotly()
+    housing = model.get_housing()
+
+    return render_template("housing.html", housing=housing, map=map)
+
+
 if __name__ == '__main__':
     model.init_housing()
     app.run(debug=True)

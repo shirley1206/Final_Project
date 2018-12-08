@@ -232,8 +232,8 @@ def populate_housing_db():
     'PetPolicyId' INTEGER,
     'ParkingId' INTEGER,
     'URL' TEXT,
-    'Lat' TEXT,
-    'Lon' TEXT
+    'Lat' REAL,
+    'Lon' REAL
     );
 
     '''
@@ -349,7 +349,7 @@ def populate_housing_db():
     conn.close()
 
 
-# create_housing_db()
-# populate_housing_db()
-#
+create_housing_db()
+populate_housing_db()
+
 

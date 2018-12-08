@@ -1,14 +1,10 @@
 #model.py
-import csv
-import sqlite3
 import secrets
 import sqlite3 as sqlite
 DBNAME = 'housing.db'
-import plotly
 import plotly.plotly as py
-import plotly.graph_objs as go
+import plotly
 MAPBOX_TOKEN = secrets.MAPBOX_TOKEN
-housing = []
 
 
 def init_housing():
@@ -62,8 +58,9 @@ def init_housing():
     final_statement = base_statement+filter_statement+' '+order_statement
     # print(final_statement)
     housing = cur.execute(final_statement).fetchall()
-    # print(housing)
 
+
+init_housing()
 
 def get_housing(sortby='bed', sortorder='desc'):
 
@@ -85,6 +82,7 @@ lon_vals = []
 text_vals = []
 
 def maponplotly():
+    global map
 
     for h in housing:
         # print(h[0])
@@ -122,7 +120,6 @@ def maponplotly():
 
 
     fig = dict( data=data, layout=layout )
-    py.plot( fig, validate=False, filename='mapbox-housing-info' )
+    div = plotly.offline.plot(fig, show_link=False, output_type="div", include_plotlyjs=True)
 
-
-maponplotly()
+    return div
