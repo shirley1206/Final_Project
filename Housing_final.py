@@ -7,6 +7,8 @@ from secrets import google_places_key
 import csv
 
 
+app = Flask(__name__)
+
 
 class HouseListing:
 
@@ -224,7 +226,7 @@ def populate_housing_db():
     'Housing' TEXT,
     'Address' TEXT,
     'Bed' TEXT,
-    'Bath' TEXT,
+    'Bath' INTEGER,
     'BuildingTypeId' INTEGER,
     'Rent' TEXT,
     'Status' TEXT,
@@ -287,7 +289,7 @@ def populate_housing_db():
     for i in building_type_id_list:
         building_type_dict[i[1]] = i[0]
 
-    print(building_type_dict)
+    # print(building_type_dict)
 
     with open('Parking.csv') as csvDataFile:
         csvReader = csv.reader(csvDataFile)
@@ -344,7 +346,6 @@ def populate_housing_db():
 
     conn.commit()
     conn.close()
-#
 
 
 create_housing_db()
