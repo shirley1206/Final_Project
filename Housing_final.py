@@ -7,9 +7,6 @@ from secrets import google_places_key
 import csv
 
 
-app = Flask(__name__)
-
-
 class HouseListing:
 
     def __init__(self, name, address=None, url=None, desc=None, rent=None, status=None, pet=None, bed=None, bath=None, housetype=None, parking=None, lat=None, lon=None):
@@ -161,7 +158,9 @@ def get_housing():
             house_parking = "Not listed"
 
         house_inc = HouseListing(house_name, house_address, house_url, house_desc,  house_rent, house_status, house_pet, house_bed, house_bath, house_type, house_parking, house_lat, house_lon)
-        # print(house_inc.type)
+        # print(house_inc.lat)
+        # print(house_inc.lon)
+
         house_ins_list.append(house_inc)
     # print(house_ins_list)
     return house_ins_list
@@ -171,9 +170,9 @@ get_housing()
 
 
 # outfile = open("Housing.csv","w")
-# outfile.write('Name,Address,Bed,Bath,Type,Rent,Status,Pet,Parking,Url\n')
+# outfile.write('Name,Address,Bed,Bath,Type,Rent,Status,Pet,Parking,Url,Lat,Lon\n')
 # for i in get_housing():
-#     outfile.write('{},{},{},{},{},{},{},{},{},{}\n'.format("\""+i.name+"\"","\""+i.address+"\"","\""+i.bed+"\"","\""+i.bath+"\"","\""+i.type+"\"","\""+i.rent+"\"","\""+i.status+"\"","\""+i.pet+"\"","\""+i.parking+"\"","\""+i.url+"\""))
+#     outfile.write('{},{},{},{},{},{},{},{},{},{},{},{}\n'.format("\""+i.name+"\"","\""+i.address+"\"","\""+i.bed+"\"","\""+i.bath+"\"","\""+i.type+"\"","\""+i.rent+"\"","\""+i.status+"\"","\""+i.pet+"\"","\""+i.parking+"\"","\""+i.url+"\"","\""+str(i.lat)+"\"","\""+str(i.lon)+"\""))
 # outfile.close()
 
 DBNAME = 'housing.db'
@@ -232,7 +231,9 @@ def populate_housing_db():
     'Status' TEXT,
     'PetPolicyId' INTEGER,
     'ParkingId' INTEGER,
-    'URL' TEXT
+    'URL' TEXT,
+    'Lat' TEXT,
+    'Lon' TEXT
     );
 
     '''
@@ -339,14 +340,16 @@ def populate_housing_db():
             ParkingId = parking_type_dict[row[8]]
             PetId = pet_id_dict[row[7]]
 
-            insertion = (None, row[0], row[1], row[2], row[3], BuildingTypeId, row[5], row[6], PetId, ParkingId, row[9])
+            insertion = (None, row[0], row[1], row[2], row[3], BuildingTypeId, row[5], row[6], PetId, ParkingId, row[9], row[10], row[11])
             statement = 'INSERT INTO "Housing"'
-            statement += "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            statement += "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             cur.execute(statement, insertion)
 
     conn.commit()
     conn.close()
 
 
-create_housing_db()
-populate_housing_db()
+# create_housing_db()
+# populate_housing_db()
+#
+

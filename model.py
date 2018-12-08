@@ -1,9 +1,13 @@
 #model.py
 import csv
 import sqlite3
+import secrets
 import sqlite3 as sqlite
 DBNAME = 'housing.db'
-
+import plotly
+import plotly.plotly as py
+import plotly.graph_objs as go
+MAPBOX_TOKEN = secrets.MAPBOX_TOKEN
 housing = []
 
 
@@ -45,7 +49,7 @@ def init_housing():
     #     order_statement = 'ORDER BY b.rating DESC'
 
     base_statement = '''
-    SELECT h.housing, h.address, h.bed, h.bath, b.type, h.rent, h.status, p2.policy, p1.type, h.url 
+    SELECT h.housing, h.address, h.bed, h.bath, b.type, h.rent, h.status, p2.policy, p1.type, h.url, h.lat, h.lon 
     from Housing as h
     JOIN BuildingType as b
     on b.ID = h.BuildingTypeId
@@ -58,6 +62,7 @@ def init_housing():
     final_statement = base_statement+filter_statement+' '+order_statement
     # print(final_statement)
     housing = cur.execute(final_statement).fetchall()
+    # print(housing)
 
 
 def get_housing(sortby='bed', sortorder='desc'):
@@ -75,5 +80,49 @@ def get_housing(sortby='bed', sortorder='desc'):
     sorted_list = sorted(housing, key=lambda row: row[sortcol], reverse=rev)
     return sorted_list
 
+lat_vals = []
+lon_vals = []
+text_vals = []
+
+def maponplotly():
+
+    for h in housing:
+        # print(h[0])
+        lat_vals.append(h[10])
+        lon_vals.append(h[11])
+        text_vals.append(h[0]+"\n"+h[1])
+
+    data = [ dict(
+            type = 'scattermapbox',
+            lon = lon_vals,
+            lat = lat_vals,
+            text = text_vals,
+            mode = 'markers',
+            marker = dict(
+                size = 8,
+                symbol = 'star',
+            ))]
+
+    layout = dict(
+            title = 'Housing on Mapbox<br>(Hover for more details)',
+            autosize=True,
+            showlegend = False,
+            mapbox=dict(
+                accesstoken=MAPBOX_TOKEN,
+                bearing=0,
+                center=dict(
+                    lon=lon_vals[0],
+                    lat=lat_vals[0]
+                ),
+                pitch=0,
+                zoom=10,
+            ),
+        )
 
 
+
+    fig = dict( data=data, layout=layout )
+    py.plot( fig, validate=False, filename='mapbox-housing-info' )
+
+
+maponplotly()
