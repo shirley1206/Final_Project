@@ -82,11 +82,11 @@ def get_housing(sortby="name", sortorder="desc", bed="", bath="", buildingtype="
 
     final_statement = init_housing()+''+filter_statement+''+order_statement
 
-    print(final_statement)
-    print(filter_list)
-    print(search_list)
+    # print(final_statement)
+    # print(filter_list)
+    # print(search_list)
     housing = cur.execute(final_statement).fetchall()
-    print(housing)
+    # print(housing)
 
     return housing
 
@@ -103,8 +103,6 @@ def maponplotly(result):
             lat_vals.append(h[10])
             lon_vals.append(h[11])
             text_vals.append(h[0]+"\n"+h[1])
-        print(len(result))
-
 
         max_lat = max(lat_vals)
         min_lat = min(lat_vals)
