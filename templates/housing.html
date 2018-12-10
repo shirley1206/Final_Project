@@ -13,18 +13,24 @@
 <!--===============================================================================================-->
 
 
+
 <body>
     <div class="limiter" style="font-family: Poppins-Regular">
         <div class="container-table100" id="background" style="margin: -40px 0">
             <div class=" col-lg-6">
-                <h2 class="text-light m-l-40"> UMich off campus housing </h2>
-
+                <h2 class="text-light m-l-40 m-b-30"> UMich off campus housing </h2>
+                <div class="form-group m-l-40">
+                    <label for="exampleInputEmail1" class="text-white">Search</label>
+                    <input type="email" class="form-control form-control-sm" style="width: 400px" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your House">
+                    <small id="emailHelp" class="form-text text-light">Search by Property Name or Address</small>
+                </div>
             </div>
+
             <div class="col-lg-6">
                 <form action="/housing" method="POST">
                     <p class="text-white">Bed</p>
-                    <select class="form-control form-control-sm" style="width: 400px">
-                        <option name="bed" value="All">All</option>
+                    <select class="form-control form-control-sm m-b-10" style="width: 400px" name='bed'>
+                        <option name="bed" value="">All</option>
                         <option name="bed" value="Studio">Studio</option>
                         <option name="bed" value="1">1</option>
                         <option name="bed" value="2">2</option>
@@ -37,11 +43,14 @@
                         <option name="bed" value="9">9</option>
                         <option name="bed" value="10">10</option>
                     </select>
+
                     <p class="text-white">Bath</p>
-                    <select class="form-control form-control-sm" style="width: 400px">
-                        <option name="bath" value="All">All</option>
+                    <select class="form-control form-control-sm m-b-10" style="width: 400px" name='bath'>
+                        <option name="bath" value="">All</option>
                         <option name="bath" value="1">1</option>
+                        <option name="bath" value="1.5">1.5</option>
                         <option name="bath" value="2">2</option>
+                        <option name="bath" value="2.5">2.5</option>
                         <option name="bath" value="3">3</option>
                         <option name="bath" value="4">4</option>
                         <option name="bath" value="5">5</option>
@@ -49,146 +58,160 @@
                         <option name="bath" value="7">7</option>
                     </select>
                     <p class="text-white">Building Type</p>
-                    <select class="form-control form-control-sm" style="width: 400px">
-                        <option name="buildingtype" value="All">All</option>
-                        <option name="buildingtype" value="Apartment">Apartment</option>
-                        <option name="buildingtype" value="Condo">Condo</option>
-                        <option name="buildingtype" value="Cottage">Cottage</option>
-                        <option name="buildingtype" value="Dorm Style">Dorm Style</option>
-                        <option name="buildingtype" value="Duplex">Duplex</option>
-                        <option name="buildingtype" value="Efficiency">Efficiency</option>
-                        <option name="buildingtype" value="House">House</option>
-                        <option name="buildingtype" value="Loft">Loft</option>
-                        <option name="buildingtype" value="Room">Room</option>
-                        <option name="buildingtype" value="Studio">Studio</option>
-                        <option name="buildingtype" value="Suite">Suite</option>
-                        <option name="buildingtype" value="Townhouse">Townhouse</option>
+                    <select class="form-control form-control-sm m-b-10" style="width: 400px" name='buildingtype'>
+                        <option name="buildingtype" value="">All</option>
+                        <option name="buildingtype" value="1">Apartment</option>
+                        <option name="buildingtype" value="2">Condo</option>
+                        <option name="buildingtype" value="3">Cottage</option>
+                        <option name="buildingtype" value="4">Dorm Style</option>
+                        <option name="buildingtype" value="5">Duplex</option>
+                        <option name="buildingtype" value="6">Efficiency</option>
+                        <option name="buildingtype" value="7">House</option>
+                        <option name="buildingtype" value="8">Loft</option>
+                        <option name="buildingtype" value="9">Room</option>
+                        <option name="buildingtype" value="10">Studio</option>
+                        <option name="buildingtype" value="11">Suite</option>
+                        <option name="buildingtype" value="12">Townhouse</option>
 
                     </select>
                     <p class="text-white">Pet</p>
-                    <select class="form-control form-control-sm" style="width: 400px">
-                        <option name="pet" value="All">All</option>
-                        <option name="pet" value="Pets Allowed">Pets Allowed</option>
-                        <option name="pet" value="Pets Not Allowed">Pets Not Allowed</option>
-                        <option name="pet" value="Pets Considered">Pets Considered</option>
-                        <option name="pet" value="Not listed">Not listed</option>
+                    <select class="form-control form-control-sm m-b-10" style="width: 400px" name='pet'>
+                        <option name="pet" value="">All</option>
+                        <option name="pet" value="1">Pets Allowed</option>
+                        <option name="pet" value="2">Pets Not Allowed</option>
+                        <option name="pet" value="9">Pets Considered</option>
+                        <option name="pet" value="10">Not listed</option>
 
                     </select>
                     <p class="text-white">Parking</p>
-                    <select class="form-control form-control-sm" style="width: 400px">
-                        <option name="parking" value="All">All</option>
-                        <option name="parking" value="Garage parking">Garage Parking</option>
-                        <option name="parking" value="On-Street Parking">On-Street Parking</option>
-                        <option name="parking" value="Not listed">Not Listed</option>
-                        <option name="parking" value="No parking">No Parking</option>
-
+                    <select class="form-control form-control-sm m-b-10" style="width: 400px" name='parking'>
+                        <option name="parking" value="">All</option>
+                        <option name="parking" value="1">Garage Parking</option>
+                        <option name="parking" value="2">On-Street Parking</option>
+                        <option name="parking" value="3">Off-Street Parking</option>
+                        <option name="parking" value="8">Not Listed</option>
+                        <option name="parking" value="9">No Parking</option>
+                    </select>
+                    <p class="text-white">Sortby</p>
+                    <select class="form-control form-control-sm m-b-10" style="width: 400px" name='sortby'>
+                        <option name="sortby" value="name">Name</option>
+                        <option name="sortby" value="rent">Rent</option>
 
                     </select>
-                    <br />
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1" class="text-white">Search</label>
-                        <input type="email" class="form-control form-control-sm" style="width: 400px" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your House">
-                        <small id="emailHelp" class="form-text text-light">Search by Property Name or Address</small>
+                    <div class="form-check form-check-inline m-l-25">
+                        <input class="form-check-input" type="radio" name="sortorder" id="inlineRadio1" value="asc" checked>
+                        <label class="form-check-label text-white" for="inlineRadio1">ASC</label>
                     </div>
-                    <button class="btn btn-secondary" type="button">List View</button>
-                    <button class="btn btn-secondary m-l-20" type="button">View on map</button>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input m-l-20" type="radio" name="sortorder" id="inlineRadio2" value="desc">
+                        <label class="form-check-label m-l-45 text-white" for="inlineRadio2">DESC</label>
+                    </div>
+                    <br />
+                    <br />
+
+                    <input class="btn btn-secondary" type="submit" value="Search" />
 
                     <br />
                     <br />
+
                 </form>
             </div>
         </div>
     </div>
 
-    <!--map-->
 
-    {{map}}
+
 
     <!--    table-->
-    <div class="limiter">
-        <div class="container-table100">
-            <div class="wrap-table100">
-                <div class="table">
 
-                    <div class="row header">
-                        <div class="cell">
-                            Housing
+
+
+    <section id="table">
+        <div class="limiter">
+            <div class="container-table100">
+                <p class="col-lg-6">
+                    <a class="btn btn-info float-left m-b-30 m-l-35" href="#table" role="button">List View</a>
+                    <a role="button" class="btn btn-info m-b-30 m-l-10" href="#map">Map View</a></p>
+                <div class="col-lg-6">
+                    <h6 class="m-b-30 text-right m-r-35" style="font-family: Poppins-Regular">Housing Found: {{result}}</h6>
+                </div>
+                <div class="wrap-table100">
+
+                    <div class="table">
+                        <div class="row header">
+                            <div class="cell">
+                                Housing
+                            </div>
+                            <div class="cell">
+                                Address
+                            </div>
+                            <div class="cell">
+                                Bed
+                            </div>
+                            <div class="cell">
+                                Bath
+                            </div>
+                            <div class="cell">
+                                Type
+                            </div>
+                            <div class="cell">
+                                Rent
+                            </div>
+                            <div class="cell">
+                                Status
+                            </div>
+                            <div class="cell">
+                                Pet
+                            </div>
+                            <div class="cell">
+                                Parking
+                            </div>
+                            <div class="cell">
+                                Site
+                            </div>
+
                         </div>
-                        <div class="cell">
-                            Address
+                        {% for h in housing %}
+
+                        <div class="row">
+                            <div class="cell" data-title="Housing">
+                                {{h[0]}} </div>
+                            <div class="cell" data-title="Address">
+                                {{h[1]}} </div>
+                            <div class="cell" data-title="Bed">
+                                {{h[2]}} </div>
+                            <div class="cell" data-title="Bath">
+                                {{h[3]}} </div>
+                            <div class="cell" data-title="Type">
+                                {{h[4]}} </div>
+                            <div class="cell" data-title="Rent">
+                                {{h[5]}} </div>
+                            <div class="cell" data-title="Status">
+                                {{h[6]}} </div>
+                            <div class="cell" data-title="Pet">
+                                {{h[7]}} </div>
+                            <div class="cell" data-title="Parking">
+                                {{h[8]}} </div>
+                            <div class="cell" data-title="Site"><a href="{{h[9]}}">{{h[9]}}</a>
+                            </div>
+
                         </div>
-                        <div class="cell">
-                            Bed
-                        </div>
-                        <div class="cell">
-                            Bath
-                        </div>
-                        <div class="cell">
-                            Type
-                        </div>
-                        <div class="cell">
-                            Rent
-                        </div>
-                        <div class="cell">
-                            Status
-                        </div>
-                        <div class="cell">
-                            Pet
-                        </div>
-                        <div class="cell">
-                            Parking
-                        </div>
-                        <div class="cell">
-                            Site
-                        </div>
+
+                        {% endfor %}
+
 
                     </div>
-                    {% for h in housing %}
-
-                    <div class="row">
-                        <div class="cell" data-title="Housing">
-                            {{h[0]}} </div>
-                        <div class="cell" data-title="Address">
-                            {{h[1]}} </div>
-                        <div class="cell" data-title="Bed">
-                            {{h[2]}} </div>
-                        <div class="cell" data-title="Bath">
-                            {{h[3]}} </div>
-                        <div class="cell" data-title="Type">
-                            {{h[4]}} </div>
-                        <div class="cell" data-title="Rent">
-                            {{h[5]}} </div>
-                        <div class="cell" data-title="Status">
-                            {{h[6]}} </div>
-                        <div class="cell" data-title="Pet">
-                            {{h[7]}} </div>
-                        <div class="cell" data-title="Parking">
-                            {{h[8]}} </div>
-                        <div class="cell" data-title="Site"><a href="{{h[9]}}">{{h[9]}}</a>
-                        </div>
-
-                    </div>
-
-                    {% endfor %}
-
-
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!--map-->
+    <section id="map">
+        <div>
+            {{map|safe}}
+        </div>
 
+    </section>
 
-
-
-    <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="js/main.js"></script>
 
 </body>

@@ -1,4 +1,3 @@
-Name,Address,Bed,Bath,Type,Rent,Status,Pet,Parking,Url,Lat,Lon
 Affordable Studios & 1 BedRooms on South U,"1325 South University Avenue Ann Arbor, MI 48104",1,1,Apartment,"$850 to $1,199","Move-In: Aug 28, 2019                Subletting allowed",Pets Not Allowed,Off-Street Parking,http://offcmp.us/v6tr22,42.2751142,-83.7323747
 Affordable Studios & 1 BedRooms on Campus,"514 South Forest Avenue Ann Arbor, MI 48104",Studio,1,Apartment,"$895 to $1,199","Move-In: Aug 28, 2019",Pets Not Allowed,Off-Street Parking,http://offcmp.us/7mmz7l,42.2759223,-83.7334236
 Island Drive Apartments,"1099 Maiden Lane Ann Arbor, MI 48105",Studio,1,Apartment,$945 to $970,Move-In: Available Now,Pets Allowed (Cats),Off-Street Parking,http://offcmp.us/wyjppt,42.2881813,-83.7340331
@@ -202,8 +201,6 @@ Spacious 2BR Apartments Close to Yost Arena,"1313 South State Street Ann Arbor, 
 808 E Kingsley St. Unit A,"808 East Kingsley Street Ann Arbor, MI 48104",1,1,Apartment,"$1,550 ","Move-In: Aug 31, 2019",Pets Allowed (Cats),Off-Street Parking,http://offcmp.us/fxvfzy,42.2847208,-83.7393157
 North Side of Ann Arbor- 3 BedRoom,"1609 Traver Road Ann Arbor, MI 48105",3,1,House,"$1,550 ",Move-In: Available Now,Pets Allowed,"Garage Parking, Off-Street Parking",http://offcmp.us/f9r1pn,42.2966248,-83.7340046
 1734 Abbott Avenue #2,"1734 Abbott Avenue Ann Arbor, MI 48103",2,1,Apartment,"$1,550 ","Move-In: Sep 1, 2019",Pets Considered,"Off-Street Parking, On-Street Parking",http://offcmp.us/jxd739,42.2802157,-83.7692702
-"Furnished, Spacious 2 BedRoom, 1 Bath Bi- Level Apt with Balcony Available Sept 2019 - Aug 2020","415 Benjamin Street Ann Arbor, MI 481034",2,1,Room,"$1,590 ","Move-In: Sep 1, 2019-Aug 21, 2020",Not listed,Not Listed,http://offcmp.us/osj013,,
-923 S 7th St,"923 S 7th St Ann Arbor, MI 48103",1,2,Apartment,"$1,295 to $1,595",Move-In: See Floorplans,Not listed,Not Listed,http://offcmp.us/b100z8,,
 908 Sybil St,"908 Sybil St Ann Arbor, MI 48104",2,1,Apartment,"$1,595 ",Move-In: See Floorplans,Pets Not Allowed,Off-Street Parking,http://offcmp.us/06j9t7,42.270561,-83.7434246
 526 Linden Unit #1,"526 Linden Ann Arbor, MI 48104",2,1,Apartment,"$1,595 ","Move-In: Aug 30, 2019",Pets Not Allowed,Off-Street Parking,http://offcmp.us/hr8jc4,42.2756147,-83.7285753
 514 West Stadium Boulevard,"514 West Stadium Boulevard Ann Arbor, MI 48103",2,1,Duplex,"$1,595 ",Move-In: Available Now,"Pets Allowed (Cats, Dogs)",Off-Street Parking,http://offcmp.us/j1aqwz,42.264363,-83.753502
@@ -267,7 +264,6 @@ Fall 2019 - 3 bed/1 bath,"1236 White Street Ann Arbor, MI 48103",3,1,House,"$2,3
 Private Rooms available in a luxury 3 Room 2.5 bath Condo,"Ann Arbor, MI 48108",3,2.5,Condo,"$775 to $1,100",Move-In: Available Now,Pets Considered (Dogs),"Garage Parking, Off-Street Parking, On-Street Parking",http://offcmp.us/7bnt9y,42.2129167,-83.7305392
 Fall 2019 - 3 bedRoom / 2 bathRoom,"924 Sylvan Avenue Ann Arbor, MI 48104",3,2,House,"$2,400 ","Move-In: Sep 1, 2019",Pets Not Allowed,Off-Street Parking,http://offcmp.us/2j666y,42.2663758,-83.7370341
 "Ideal Location : Beautiful Townhouse, 4BR, 2Baths, one block from University Hospital & Campus.","820 Catherine Street Ann Arbor, MI 48104",4,2,Townhouse,"$2,400 ",Move-In: Available Now,Pets Not Allowed,Off-Street Parking,http://offcmp.us/fm76kd,42.2828908,-83.7388185
-924 Sylvan,"924 Sylvan Ave Ann Arbor, MI 48104",3,2,House,"$2,400 ",Move-In: Available Now,Not listed,Not Listed,http://offcmp.us/amqz2q,,
 4 BedRoom Near Packard,"942 Woodlawn Ave Ann Arbor, MI 48104",4,2,House,"$2,450 ","Move-In: Aug 30, 2019","Pets Allowed (Cats, Dogs)",On-Street Parking,http://offcmp.us/d5v200,42.2649064,-83.7361211
 4 BedRoom Near Yost,"1427 South State Street Ann Arbor, MI 48104",4,2.5,Apartment,"$2,460 ","Move-In: Aug 30, 2019",Pets Not Allowed,Off-Street Parking,http://offcmp.us/vvkf6y,42.2632244,-83.7401411
 727 Packard,"727 Packard Street Ann Arbor, MI 48104",3,1,Apartment,"$2,570 ","Move-In: Aug 28, 2019",Pets Allowed (Cats),Off-Street Parking,http://offcmp.us/f3n7mg,42.2704068,-83.7395447
@@ -494,7 +490,6 @@ $550/mo. 1 Roommate Needed for 2 BR Apt.  Available 12/15/18  to 4/14/19 (4 mont
 Forest Terrace,"1001 South Forest Avenue Ann Arbor, MI 48104",2,1,Apartment,$550 to $875,"Move-In: Aug 30, 2019                Subletting allowed",Pets Not Allowed,Off-Street Parking,http://offcmp.us/xfn01n,42.2702291,-83.7327804
 University Towers,"536 South Forest Avenue Ann Arbor, MI 48104",2,1,Apartment,$550 ,"Earliest Move-In:        1/1/19                    Lease End:                7/31/19",Pets Not Allowed,On-Street Parking,http://offcmp.us/77qd3n,42.2753227,-83.7333555
 The Yard - Female Preferred,"615 South Main Street Ann Arbor, MI 48104",1,1,Apartment,"$1,114 ","Move-In: Dec 1, 2018",Pets Allowed (Dogs),Garage Parking,http://offcmp.us/5ymqfg,42.2734189,-83.748626
-Hub Ann Arbor,"603 E Huron Apt 313 Bedspace - C Ann Arbor, MI 48104",1,1,Room,"$1,149 ","Earliest Move-In:        5/4/19                    Move-Out:                8/21/19",Not listed,Not Listed,http://offcmp.us/35l42f,,
 Winter Sublet in Apartment on Church Street,"909 Church Street Ann Arbor, MI 48104",2,1.5,Apartment,$575 ,"Earliest Move-In:        12/22/18                    Move-Out:                5/2/19",Pets Not Allowed,Off-Street Parking,http://offcmp.us/33rhya,42.2711862,-83.7341499
 Private bedRoom and individual bathRoom at Hub,"603 East Huron Street Ann Arbor, MI 48104",1,1,Apartment,"$1,174 ","Earliest Move-In:        12/12/18                    Lease End:                8/4/19",Pets Not Allowed,No Parking,http://offcmp.us/x2tbx3,42.2815492,-83.741993
 Foundry Lofts,"413 East Huron Street Ann Arbor, MI 48104",1,1,Apartment,"$1,180 ","Earliest Move-In:        12/15/18                    Lease End:                8/9/19",Pets Not Allowed,Garage Parking,http://offcmp.us/nxdcp7,42.2815404,-83.7432378

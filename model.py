@@ -9,40 +9,6 @@ MAPBOX_TOKEN = secrets.MAPBOX_TOKEN
 
 def init_housing():
     global housing
-    conn = sqlite.connect(DBNAME)
-    cur = conn.cursor()
-
-    # option =
-
-    filter_statement = ''
-
-    #
-    # if 'sellcountry=' in option:
-    #     value = option.split("=")[1]
-    #     filter_statement = 'Where c1.Alpha2='
-    #     filter_statement += '"{}"'.format(value)
-    #
-    # elif 'sourcecountry=' in option:
-    #     value = option.split("=")[1]
-    #     filter_statement = 'Where c2.Alpha2='
-    #     filter_statement += '"{}"'.format(value)
-    #
-    # elif 'sellregion=' in option:
-    #     value = option.split("=")[1]
-    #     filter_statement = 'Where c1.Region='
-    #     filter_statement += '"{}"'.format(value)
-    #
-    # elif 'sourceregion=' in option:
-    #     value = option.split("=")[1]
-    #     filter_statement = 'Where c2.Region='
-    #     filter_statement += '"{}"'.format(value)
-    #
-    order_statement = ''
-    # if 'cocoa' in words:
-    #     order_statement = 'ORDER BY b.CocoaPercent DESC'
-    #
-    # else:
-    #     order_statement = 'ORDER BY b.rating DESC'
 
     base_statement = '''
     SELECT h.housing, h.address, h.bed, h.bath, b.type, h.rent, h.status, p2.policy, p1.type, h.url, h.lat, h.lon 
@@ -54,72 +20,115 @@ def init_housing():
     JOIN Pet as p2
     on p2.ID = h.petpolicyid
     '''
+    return base_statement
 
-    final_statement = base_statement+filter_statement+' '+order_statement
-    # print(final_statement)
+
+def get_housing(sortby="name", sortorder="desc", bed="", bath="", buildingtype="", pet="", parking=""):
+    global housing
+
+    conn = sqlite.connect(DBNAME)
+    cur = conn.cursor()
+    filter_list = []
+
+    if bed == "Studio":
+        filter_list.append('h.bed="{}"'.format(bed))
+    elif bed != "":
+        filter_list.append('h.bed={} '.format(bed))
+    
+    if bath != "":
+        filter_list.append('h.bath={} '.format(bath))
+
+    if buildingtype != "":
+        filter_list.append('h.buildingtypeid={} '.format(buildingtype))
+
+    if pet != "":
+        filter_list.append('h.petpolicyid={} '.format(pet))
+
+    if parking != "":
+        filter_list.append('h.parkingid={} '.format(parking))
+
+    if sortby == 'name':
+        order_statement = "ORDER BY h.housing "
+
+    else:
+        order_statement = "ORDER BY h.rent "
+
+    if sortorder == "asc":
+        order_statement += "ASC"
+    else:
+        order_statement += "DESC"
+
+    if len(filter_list) != 0:
+        filter_statement = 'Where '
+        if len(filter_list) == 1:
+            filter_statement += filter_list[0]
+
+        if len(filter_list) > 1:
+            filter_statement += 'and '.join(filter_list)
+    else:
+        filter_statement = ""
+
+    try:
+        final_statement = init_housing()+''+filter_statement+''+order_statement
+    except:
+        final_statement = init_housing()+''+order_statement
+
+    print(final_statement)
     housing = cur.execute(final_statement).fetchall()
 
+    return housing
 
-init_housing()
 
-def get_housing(sortby='bed', sortorder='desc'):
-
-    if sortby == 'bed':
-        sortcol = 2
-    elif sortby == 'bath':
-        sortcol = 3
-    elif sortby == 'rent':
-        sortcol = 5
-    else:
-        sortcol = 0
-
-    rev = (sortorder == 'desc')
-    sorted_list = sorted(housing, key=lambda row: row[sortcol], reverse=rev)
-    return sorted_list
 
 lat_vals = []
 lon_vals = []
 text_vals = []
 
 def maponplotly():
-    global map
 
-    for h in housing:
-        # print(h[0])
-        lat_vals.append(h[10])
-        lon_vals.append(h[11])
-        text_vals.append(h[0]+"\n"+h[1])
+    if housing:
+        for h in housing:
+            lat_vals.append(h[10])
+            lon_vals.append(h[11])
+            text_vals.append(h[0]+"\n"+h[1])
 
-    data = [ dict(
-            type = 'scattermapbox',
-            lon = lon_vals,
-            lat = lat_vals,
-            text = text_vals,
-            mode = 'markers',
-            marker = dict(
-                size = 8,
-                symbol = 'star',
-            ))]
+        max_lat = max(lat_vals)
+        min_lat = min(lat_vals)
+        max_lon = max(lon_vals)
+        min_lon = min(lon_vals)
 
-    layout = dict(
-            title = 'Housing on Mapbox<br>(Hover for more details)',
-            autosize=True,
-            showlegend = False,
-            mapbox=dict(
-                accesstoken=MAPBOX_TOKEN,
-                bearing=0,
-                center=dict(
-                    lon=lon_vals[0],
-                    lat=lat_vals[0]
+        center_lat = (max_lat+min_lat) / 2
+        center_lon = (max_lon+min_lon) / 2
+
+        data = [ dict(
+                type = 'scattermapbox',
+                lon = lon_vals,
+                lat = lat_vals,
+                text = text_vals,
+                mode = 'markers',
+                marker = dict(
+                    size = 8,
+                    symbol = 'star',
+                ))]
+
+        layout = dict(
+                title = 'Housing on Mapbox<br>(Hover for more details)',
+                autosize=True,
+                showlegend = False,
+                mapbox=dict(
+                    accesstoken=MAPBOX_TOKEN,
+                    bearing=0,
+                    center=dict(
+                        lon=center_lon,
+                        lat=center_lat
+                    ),
+                    pitch=0,
+                    zoom=12,
                 ),
-                pitch=0,
-                zoom=10,
-            ),
-        )
+            )
 
+        fig = dict( data=data, layout=layout )
+        div = plotly.offline.plot(fig, show_link=False, output_type="div", include_plotlyjs=True)
 
+        return div
 
-    fig = dict( data=data, layout=layout )
-    div = plotly.offline.plot(fig, show_link=False, output_type="div", include_plotlyjs=True)
-
-    return div

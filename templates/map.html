@@ -1,0 +1,119 @@
+<link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/static/css/util.css">
+<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+<!--===============================================================================================-->
+
+
+<body>
+    <div class="limiter" style="font-family: Poppins-Regular">
+        <div class="container-table100" id="background" style="margin: -40px 0">
+            <div class=" col-lg-6">
+                <h2 class="text-light m-l-40"> UMich off campus housing </h2>
+
+            </div>
+            <div class="col-lg-6">
+                <form action="/housing" method="POST">
+                    <p class="text-white">Bed</p>
+                    <select class="form-control form-control-sm" style="width: 400px">
+                        <option name="bed" value="All">All</option>
+                        <option name="bed" value="Studio">Studio</option>
+                        <option name="bed" value="1">1</option>
+                        <option name="bed" value="2">2</option>
+                        <option name="bed" value="3">3</option>
+                        <option name="bed" value="4">4</option>
+                        <option name="bed" value="5">5</option>
+                        <option name="bed" value="6">6</option>
+                        <option name="bed" value="7">7</option>
+                        <option name="bed" value="8">8</option>
+                        <option name="bed" value="9">9</option>
+                        <option name="bed" value="10">10</option>
+                    </select>
+                    <p class="text-white">Bath</p>
+                    <select class="form-control form-control-sm" style="width: 400px">
+                        <option name="bath" value="All">All</option>
+                        <option name="bath" value="1">1</option>
+                        <option name="bath" value="2">2</option>
+                        <option name="bath" value="3">3</option>
+                        <option name="bath" value="4">4</option>
+                        <option name="bath" value="5">5</option>
+                        <option name="bath" value="6">6</option>
+                        <option name="bath" value="7">7</option>
+                    </select>
+                    <p class="text-white">Building Type</p>
+                    <select class="form-control form-control-sm" style="width: 400px">
+                        <option name="buildingtype" value="All">All</option>
+                        <option name="buildingtype" value="Apartment">Apartment</option>
+                        <option name="buildingtype" value="Condo">Condo</option>
+                        <option name="buildingtype" value="Cottage">Cottage</option>
+                        <option name="buildingtype" value="Dorm Style">Dorm Style</option>
+                        <option name="buildingtype" value="Duplex">Duplex</option>
+                        <option name="buildingtype" value="Efficiency">Efficiency</option>
+                        <option name="buildingtype" value="House">House</option>
+                        <option name="buildingtype" value="Loft">Loft</option>
+                        <option name="buildingtype" value="Room">Room</option>
+                        <option name="buildingtype" value="Studio">Studio</option>
+                        <option name="buildingtype" value="Suite">Suite</option>
+                        <option name="buildingtype" value="Townhouse">Townhouse</option>
+
+                    </select>
+                    <p class="text-white">Pet</p>
+                    <select class="form-control form-control-sm" style="width: 400px">
+                        <option name="pet" value="All">All</option>
+                        <option name="pet" value="Pets Allowed">Pets Allowed</option>
+                        <option name="pet" value="Pets Not Allowed">Pets Not Allowed</option>
+                        <option name="pet" value="Pets Considered">Pets Considered</option>
+                        <option name="pet" value="Not listed">Not listed</option>
+
+                    </select>
+                    <p class="text-white">Parking</p>
+                    <select class="form-control form-control-sm" style="width: 400px">
+                        <option name="parking" value="All">All</option>
+                        <option name="parking" value="Garage parking">Garage Parking</option>
+                        <option name="parking" value="On-Street Parking">On-Street Parking</option>
+                        <option name="parking" value="Not listed">Not Listed</option>
+                        <option name="parking" value="No parking">No Parking</option>
+
+
+                    </select>
+                    <br />
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="text-white">Search</label>
+                        <input type="email" class="form-control form-control-sm" style="width: 400px" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your House">
+                        <small id="emailHelp" class="form-text text-light">Search by Property Name or Address</small>
+                    </div>
+                    <a class="btn btn-secondary" role="button" href="/#table">List View</a>
+                    <a class="btn btn-secondary m-l-20" role="button" href="/map#map">View on map</a>
+                    <br />
+                    <br />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--map-->
+    <section id="map">
+        {{map|safe}}
+
+    </section>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+</body>

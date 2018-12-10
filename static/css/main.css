@@ -66,9 +66,10 @@ li {
 
 /* ------------------------------------ */
 input {
-  display: block;
+  display: table-cell;
   outline: none;
   border: none !important;
+  vertical-align: middle;
 }
 
 textarea {
@@ -135,6 +136,7 @@ iframe {
   display: table;
   margin: 0;
 }
+
 
 @media screen and (max-width: 768px) {
   .table {
