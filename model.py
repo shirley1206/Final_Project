@@ -8,7 +8,6 @@ MAPBOX_TOKEN = secrets.MAPBOX_TOKEN
 
 
 def init_housing():
-    global housing
 
     base_statement = '''
     SELECT h.housing, h.address, h.bed, h.bath, b.type, h.rent, h.status, p2.policy, p1.type, h.url, h.lat, h.lon 
@@ -23,18 +22,19 @@ def init_housing():
     return base_statement
 
 
-def get_housing(sortby="name", sortorder="desc", bed="", bath="", buildingtype="", pet="", parking=""):
+def get_housing(sortby="name", sortorder="desc", bed="", bath="", buildingtype="", pet="", parking="", search=""):
     global housing
 
     conn = sqlite.connect(DBNAME)
     cur = conn.cursor()
     filter_list = []
+    search_list = []
 
     if bed == "Studio":
         filter_list.append('h.bed="{}"'.format(bed))
     elif bed != "":
         filter_list.append('h.bed={} '.format(bed))
-    
+
     if bath != "":
         filter_list.append('h.bath={} '.format(bath))
 
@@ -58,6 +58,10 @@ def get_housing(sortby="name", sortorder="desc", bed="", bath="", buildingtype="
     else:
         order_statement += "DESC"
 
+    if search != "":
+        search_list.append("h.housing LIKE '%{}%'".format(search))
+        search_list.append("h.address LIKE '%{}%'".format(search))
+
     if len(filter_list) != 0:
         filter_statement = 'Where '
         if len(filter_list) == 1:
@@ -65,37 +69,48 @@ def get_housing(sortby="name", sortorder="desc", bed="", bath="", buildingtype="
 
         if len(filter_list) > 1:
             filter_statement += 'and '.join(filter_list)
+
+    elif len(search_list) != 0:
+        filter_statement = 'Where '
+        if len(search_list) == 1:
+            filter_statement += search_list[0]
+
+        if len(search_list) > 1:
+            filter_statement += 'or '.join(search_list)
     else:
         filter_statement = ""
 
-    try:
-        final_statement = init_housing()+''+filter_statement+''+order_statement
-    except:
-        final_statement = init_housing()+''+order_statement
+    final_statement = init_housing()+''+filter_statement+''+order_statement
 
     print(final_statement)
+    print(filter_list)
+    print(search_list)
     housing = cur.execute(final_statement).fetchall()
+    print(housing)
 
     return housing
 
 
+def maponplotly(result):
 
-lat_vals = []
-lon_vals = []
-text_vals = []
+    if len(result) > 0:
 
-def maponplotly():
+        lat_vals = []
+        lon_vals = []
+        text_vals = []
 
-    if housing:
-        for h in housing:
+        for h in result:
             lat_vals.append(h[10])
             lon_vals.append(h[11])
             text_vals.append(h[0]+"\n"+h[1])
+        print(len(result))
+
 
         max_lat = max(lat_vals)
         min_lat = min(lat_vals)
         max_lon = max(lon_vals)
         min_lon = min(lon_vals)
+
 
         center_lat = (max_lat+min_lat) / 2
         center_lon = (max_lon+min_lon) / 2
@@ -123,7 +138,7 @@ def maponplotly():
                         lat=center_lat
                     ),
                     pitch=0,
-                    zoom=12,
+                    zoom=10,
                 ),
             )
 

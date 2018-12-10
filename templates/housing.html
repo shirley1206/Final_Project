@@ -19,15 +19,18 @@
         <div class="container-table100" id="background" style="margin: -40px 0">
             <div class=" col-lg-6">
                 <h2 class="text-light m-l-40 m-b-30"> UMich off campus housing </h2>
-                <div class="form-group m-l-40">
-                    <label for="exampleInputEmail1" class="text-white">Search</label>
-                    <input type="email" class="form-control form-control-sm" style="width: 400px" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your House">
-                    <small id="emailHelp" class="form-text text-light">Search by Property Name or Address</small>
-                </div>
+                <form action="/search#result" method="POST">
+                    <div class="form-group m-l-40">
+                        <label class="text-white">Search</label>
+                        <input type="text" class="form-control form-control-sm" style="width: 400px" placeholder="Your House" name="search">
+                        <small id="emailHelp" class="form-text text-light">Search by Property Name or Address</small><br />
+                        <input class="btn btn-secondary" type="submit" value="Search" />
+                    </div>
+                </form>
             </div>
 
             <div class="col-lg-6">
-                <form action="/housing" method="POST">
+                <form action="/filter#result" method="POST">
                     <p class="text-white">Bed</p>
                     <select class="form-control form-control-sm m-b-10" style="width: 400px" name='bed'>
                         <option name="bed" value="">All</option>
@@ -109,7 +112,7 @@
                     <br />
                     <br />
 
-                    <input class="btn btn-secondary" type="submit" value="Search" />
+                    <a id='result'><input class="btn btn-secondary" type="submit" value="Search" /></a>
 
                     <br />
                     <br />
