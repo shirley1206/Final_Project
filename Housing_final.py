@@ -349,7 +349,6 @@ def populate_housing_db():
     conn.close()
 
 
-create_housing_db()
-populate_housing_db()
-
-
+if __name__=="__main__":
+    create_housing_db()
+    populate_housing_db()
