@@ -82,15 +82,15 @@ class TestDatabase(unittest.TestCase):
 
 			conn.close()
 
-	class TestDataStorage(unittest.TestCase):
-		def test_get_housing(self):
-			results = get_housing(sortby="name", sortorder="desc", bed="3", bath="3", buildingtype="1", pet="", parking="", search="")
-			self.assertEqual(results[7][0], '930 Church St. Unit B')
-			self.assertEqual(results[1][5], '$850')
+class TestDataStorage(unittest.TestCase):
+	def test_get_housing(self):
+		results = get_housing(sortby="name", sortorder="desc", bed="3", bath="3", buildingtype="1", pet="", parking="", search="")
+		self.assertEqual(results[7][0], '930 Church St. Unit B')
+		self.assertEqual(results[1][5], '$850')
 
-			results = get_housing(sortby="name", sortorder="asc", search="kerrytown")
-			self.assertEqual(results[0][0],'Short term leases in historic Kerrytown House, huge bedRooms, close to central campus')
-			self.assertEqual(results[1][4], 'Apartment')
+		results = get_housing(sortby="name", sortorder="asc", search="kerrytown")
+		self.assertEqual(results[0][0],'Short term leases in historic Kerrytown House, huge bedRooms, close to central campus')
+		self.assertEqual(results[1][4], 'Apartment')
 
 
 unittest.main()

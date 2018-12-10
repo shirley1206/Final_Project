@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c592361-2b0e-4855-80d2-2696aaffc0c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final_project_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_test.py" afterDir="false" />
-    </list>
+    <list default="true" id="8c592361-2b0e-4855-80d2-2696aaffc0c1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +25,7 @@
         <counts>
           <entry key="css" value="1" />
           <entry key="html" value="1" />
-          <entry key="py" value="59" />
+          <entry key="py" value="60" />
           <entry key="secrets" value="1" />
         </counts>
       </usages-collector>
@@ -36,20 +33,20 @@
         <counts>
           <entry key="CSS" value="1" />
           <entry key="HTML" value="1" />
-          <entry key="Python" value="58" />
+          <entry key="Python" value="59" />
           <entry key="Scratch" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="3" />
-          <entry key="py" value="9956" />
+          <entry key="py" value="9957" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="9955" />
+          <entry key="Python" value="9956" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
@@ -57,23 +54,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/final_project_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="86" column="124" selection-start-line="86" selection-start-column="124" selection-end-line="86" selection-end-column="124" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Housing_final.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="383">
               <caret line="348" column="16" selection-start-line="348" selection-start-column="16" selection-end-line="348" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../../../../Final_project/final_project_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="92" column="52" selection-start-line="84" selection-end-line="92" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,9 +97,9 @@
         <option value="$PROJECT_DIR$/model.py" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/Housing_final.py" />
-        <option value="$PROJECT_DIR$/../../../../../Final_project/final_project_test.py" />
         <option value="$USER_HOME$/Desktop/final_project_test.py" />
         <option value="$PROJECT_DIR$/final_project_test.py" />
+        <option value="$PROJECT_DIR$/../../../../../Final_project/final_project_test.py" />
       </list>
     </option>
   </component>
@@ -156,7 +153,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in final_project_test.py">
+  <component name="RunManager" selected="Python.final_project_test">
     <configuration name="final_project_test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Final_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -257,9 +254,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.final_project_test" />
         <item itemvalue="Python tests.Unittests in final_project_test.py" />
         <item itemvalue="Python tests.Unittests in final_project_test copy.py" />
-        <item itemvalue="Python.final_project_test" />
         <item itemvalue="Python.final_project_test (1)" />
         <item itemvalue="Python.model" />
       </list>
@@ -269,12 +266,6 @@
     <configuration />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 00h 59m 46s.xml">
-      <configuration name="Unittests in final_project_test.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 00m 57s.xml">
-      <configuration name="Unittests in final_project_test.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 01m 35s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
@@ -297,6 +288,12 @@
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 39m 21s.xml">
+      <configuration name="Unittests in final_project_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 41m 47s.xml">
+      <configuration name="Unittests in final_project_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 42m 04s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -433,13 +430,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/final_project_test.py" />
-    <entry file="file://$PROJECT_DIR$/../../../../../Final_project/final_project_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -472,6 +462,16 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/final_project_test copy.py" />
+    <entry file="file://$PROJECT_DIR$/final_project_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Housing_final.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
@@ -479,10 +479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/final_project_test.py">
+    <entry file="file://$PROJECT_DIR$/../../../../../Final_project/final_project_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="86" column="124" selection-start-line="86" selection-start-column="124" selection-end-line="86" selection-end-column="124" />
+        <state relative-caret-position="413">
+          <caret line="92" column="52" selection-start-line="84" selection-end-line="92" selection-end-column="52" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
