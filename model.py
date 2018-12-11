@@ -24,6 +24,7 @@ def init_housing():
 
 
 def get_housing(sortby="name", sortorder="desc", bed="", bath="", buildingtype="", pet="", parking="", search="", status=""):
+
     global housing
 
     conn = sqlite.connect(DBNAME)
@@ -157,7 +158,8 @@ def graph(result):
     House_num = 0
     Townhouse_num = 0
     Room_num = 0
-    Duplex_num=0
+    Duplex_num = 0
+    Condo_num = 0
 
     for h in result:
 
@@ -176,8 +178,11 @@ def graph(result):
         if h[4] == "Room":
             Room_num = Room_num+1
 
-    labels = ['Apartment','House','Townhouse','Duplex','Room']
-    values = [Apartment_num,House_num,Townhouse_num, Duplex_num, Room_num]
+        if h[4] == "Condo":
+            Condo_num = Condo_num+1
+
+    labels = ['Apartment','House','Townhouse','Duplex','Room', 'Condo']
+    values = [Apartment_num,House_num,Townhouse_num, Duplex_num, Room_num, Condo_num]
     trace = go.Pie(labels=labels, values=values)
 
     div = plotly.offline.plot([trace], show_link=False, output_type="div", include_plotlyjs=True)
@@ -194,6 +199,7 @@ def bar(result):
     Townhouse =[]
     Room =[]
     Duplex =[]
+    Condo =[]
 
     for h in result:
 
@@ -213,6 +219,9 @@ def bar(result):
 
             if h[4]=="Room":
                 Room.append(int(str(h[5]).replace(',','')))
+
+            if h[4]=="Condo":
+                Condo.append(int(str(h[5]).replace(',','')))
 
     if len(Apartment) != 0:
         Apartment_num = sum(Apartment)/len(Apartment)
@@ -240,9 +249,14 @@ def bar(result):
     else:
         Room_num = 0
 
+    if len(Condo) != 0:
+        Condo_num = sum(Condo)/len(Condo)
+    else:
+        Condo_num = 0
+
     data = [go.Bar(
-            x=['Apartment', 'House', 'Townhouse', 'Duplex', 'Room'],
-            y=[Apartment_num, House_num, Townhouse_num, Duplex_num, Room_num]
+            x=['Apartment', 'House', 'Townhouse', 'Duplex', 'Room', 'Condo'],
+            y=[Apartment_num, House_num, Townhouse_num, Duplex_num, Room_num, Condo_num]
     )]
 
     div = plotly.offline.plot(data, show_link=False, output_type="div", include_plotlyjs=True)
