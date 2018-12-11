@@ -26,4 +26,4 @@ Model.py:
 
 User guide:
 
-	On the html interface('/search'), a user can choose to use search or filters to get the off campus housing result. Click on the button "list view", "map view" or "graphs" to see different types of data presentation.
+On the html interface('/search'), a user can choose to use search or filters to get the off campus housing result. Click on the button "list view", "map view" or "graphs" to see different types of data presentation.
