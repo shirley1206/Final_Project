@@ -30,7 +30,8 @@ On the html interface('/search'), a user can choose to use search or filters to 
 
 Plotly installation info:
 
-To install Plotly's python package, use the package manager pip inside your terminal.
+
+***To install Plotly's python package, use the package manager pip inside your terminal.
 	
 	$ pip install plotly 
 	or 
