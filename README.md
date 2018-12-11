@@ -36,3 +36,5 @@ To install Plotly's python package, use the package manager pip inside your term
 	$ pip install plotly 
 	or 
 	$ sudo pip install plotly 
+
+***RUN app.py to start!
