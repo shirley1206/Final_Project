@@ -109,7 +109,7 @@ class TestDataStorage(unittest.TestCase):
         results = get_housing(sortby="name", sortorder="desc", bed="3", bath="3", buildingtype="1", pet="", parking="",
                               search="")
         self.assertEqual(results[7][0], '930 Church St. Unit B')
-        self.assertEqual(results[1][5], '$850 ')
+        self.assertEqual(results[1][5], 850)
 
     def test_house_search(self):
         results = get_housing(search="kerrytown")
@@ -128,8 +128,11 @@ class TestDataPresentation(unittest.TestCase):
         results = get_housing(search="kerrytown")
         try:
             maponplotly(results)
+            graph(results)
+            bar(results)
         except:
             self.fail()
+
 
 
 
