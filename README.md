@@ -27,3 +27,11 @@ Model.py:
 User guide:
 
 On the html interface('/search'), a user can choose to use search or filters to get the off campus housing result. Click on the button "list view", "map view" or "graphs" to see different types of data presentation.
+
+Plotly installation info:
+
+To install Plotly's python package, use the package manager pip inside your terminal.
+	
+	$ pip install plotly 
+	or 
+	$ sudo pip install plotly 
