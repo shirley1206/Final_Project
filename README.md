@@ -1,8 +1,8 @@
 Data source:
-
-U of m off campus housing: https://offcampushousing.umich.edu/
-
-Google place API: get geo coordinate information for each housing
+	
+	U of m off campus housing: https://offcampushousing.umich.edu/
+	
+	Google place API: get geo coordinate information for each housing
 
 Code structure:
 
@@ -25,4 +25,5 @@ Model.py:
 	bar(): calculate average rent for the results and generate a bar chart for different buildingtypes.
 
 User guide:
-On the html interface('/search'), a user can choose to use search or filters to get the off campus housing result. Click on the button "list view", "map view" or "graphs" to see different types of data presentation.
+
+	On the html interface('/search'), a user can choose to use search or filters to get the off campus housing result. Click on the button "list view", "map view" or "graphs" to see different types of data presentation.
