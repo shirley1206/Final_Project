@@ -26,7 +26,7 @@ Model.py:
 
 User guide:
 
-	***RUN app.py to start and go to local host (/search)
+	RUN app.py to start and go to local host (/search)
 
 On the html interface('/search'), a user can choose to use search or filters to get the off campus housing result. Click on the button "list view", "map view" or "graphs" to see different types of data presentation.
 
