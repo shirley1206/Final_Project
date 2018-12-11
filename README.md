@@ -1,6 +1,6 @@
 Data source:
-U of m off campus housing: https://offcampushousing.umich.edu/
-Google place API: get geo coordinate information for each housing
+(1) U of m off campus housing: https://offcampushousing.umich.edu/
+(2) Google place API: get geo coordinate information for each housing
 
 Code structure:
 
