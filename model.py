@@ -22,7 +22,7 @@ def init_housing():
     return base_statement
 
 
-def get_housing(sortby="name", sortorder="desc", bed="", bath="", buildingtype="", pet="", parking="", search=""):
+def get_housing(sortby="name", sortorder="desc", bed="", bath="", buildingtype="", pet="", parking="", search="", status=""):
     global housing
 
     conn = sqlite.connect(DBNAME)
@@ -46,6 +46,9 @@ def get_housing(sortby="name", sortorder="desc", bed="", bath="", buildingtype="
 
     if parking != "":
         filter_list.append('h.parkingid={} '.format(parking))
+
+    if status == "Available":
+        filter_list.append("h.status LIKE '%{}%'".format("Available Now"))
 
     if sortby == 'name':
         order_statement = "ORDER BY h.housing "
@@ -102,7 +105,7 @@ def maponplotly(result):
         for h in result:
             lat_vals.append(h[10])
             lon_vals.append(h[11])
-            text_vals.append(h[0]+"\n"+h[1])
+            text_vals.append(h[0]+","+h[1]+","+h[5])
 
         max_lat = max(lat_vals)
         min_lat = min(lat_vals)
@@ -144,4 +147,6 @@ def maponplotly(result):
         div = plotly.offline.plot(fig, show_link=False, output_type="div", include_plotlyjs=True)
 
         return div
+
+
 

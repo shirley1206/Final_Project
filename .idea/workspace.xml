@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoTestManager">
+    <enabled-run-configurations>
+      <run-configuration type="tests" name="Unittests in final_project_test.py" />
+    </enabled-run-configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8c592361-2b0e-4855-80d2-2696aaffc0c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final_project_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/housing.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/housing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,20 +26,20 @@
     <session id="-1464994110">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
           <entry key="html" value="1" />
-          <entry key="py" value="62" />
+          <entry key="py" value="67" />
           <entry key="secrets" value="1" />
         </counts>
       </usages-collector>
@@ -36,44 +47,48 @@
         <counts>
           <entry key="CSS" value="1" />
           <entry key="HTML" value="1" />
-          <entry key="Python" value="61" />
+          <entry key="Python" value="66" />
           <entry key="Scratch" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="3" />
-          <entry key="py" value="10002" />
+          <entry key="py" value="10965" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="10001" />
+          <entry key="Python" value="10964" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/final_project_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+            <state relative-caret-position="427">
+              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
+                <marker date="1544481208381" expanded="true" signature="2012:2021" ph="..." />
+                <marker date="1544481208381" expanded="true" signature="3173:3182" ph="..." />
+                <marker date="1544481208381" expanded="true" signature="3701:3710" ph="..." />
+                <marker date="1544481208381" expanded="true" signature="3839:3841" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Housing_final.py">
+        <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2307">
-              <caret line="348" column="16" selection-start-line="348" selection-start-column="16" selection-end-line="348" selection-end-column="16" />
+            <state relative-caret-position="258">
+              <caret line="34" column="145" selection-start-line="34" selection-start-column="145" selection-end-line="34" selection-end-column="145" />
             </state>
           </provider>
         </entry>
@@ -81,8 +96,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+            <state relative-caret-position="433">
+              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Project3/F2018-507-Project3/proj3_choc_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="63" column="56" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -90,8 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../../../Final_project/final_project_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="91" column="30" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+            <state relative-caret-position="480">
+              <caret line="94" selection-start-line="94" selection-end-line="94" selection-end-column="15" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -118,16 +142,16 @@
         <option value="$PROJECT_DIR$/../HW12/model.py" />
         <option value="$PROJECT_DIR$/secrets.py" />
         <option value="$PROJECT_DIR$/secrets" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/Housing_final.py" />
         <option value="$USER_HOME$/Desktop/final_project_test.py" />
-        <option value="$PROJECT_DIR$/final_project_test.py" />
         <option value="$PROJECT_DIR$/../../../../../Final_project/final_project_test.py" />
+        <option value="$PROJECT_DIR$/final_project_test.py" />
+        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/model.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="822" />
@@ -177,7 +201,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.final_project_test">
+  <component name="RunManager" selected="Python.model">
     <configuration name="final_project_test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Final_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -278,11 +302,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.final_project_test" />
         <item itemvalue="Python tests.Unittests in final_project_test.py" />
+        <item itemvalue="Python.model" />
+        <item itemvalue="Python.final_project_test" />
         <item itemvalue="Python tests.Unittests in final_project_test copy.py" />
         <item itemvalue="Python.final_project_test (1)" />
-        <item itemvalue="Python.model" />
       </list>
     </recent_temporary>
   </component>
@@ -290,40 +314,39 @@
     <configuration />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 01m 35s.xml">
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.11 at 00h 28m 20s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 04m 32s.xml">
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.11 at 00h 28m 49s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 05m 51s.xml">
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.11 at 00h 29m 18s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 22m 48s.xml">
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.11 at 01h 36m 36s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_final_project_test_copy_py - 2018.12.10 at 01h 27m 18s.xml">
-      <configuration name="Unittests in final_project_test copy.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 37m 18s.xml">
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.11 at 01h 37m 05s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 38m 16s.xml">
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.11 at 01h 38m 50s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 39m 21s.xml">
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.11 at 01h 40m 33s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 41m 47s.xml">
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.11 at 01h 41m 06s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_final_project_test_py - 2018.12.10 at 01h 42m 04s.xml">
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.11 at 01h 41m 39s.xml">
+      <configuration name="Unittests in final_project_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_final_project_test_py - 2018.12.11 at 01h 45m 29s.xml">
       <configuration name="Unittests in final_project_test.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="822" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="822" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0944327" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -454,20 +477,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/final_project_test.py" />
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Project3/F2018-507-Project3/proj3_choc_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="108" column="49" selection-start-line="103" selection-start-column="8" selection-end-line="108" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Project3/F2018-507-Project3/proj3_choc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -475,41 +484,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Project2/proj2_nps_test.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/final_project_test copy.py" />
+    <entry file="file://$PROJECT_DIR$/Housing_final.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5130">
+          <caret line="348" column="16" selection-start-line="348" selection-start-column="16" selection-end-line="348" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Project2/proj2_nps_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="89" column="39" lean-forward="true" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../../Final_project/final_project_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="91" column="30" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+        <state relative-caret-position="480">
+          <caret line="94" selection-start-line="94" selection-end-line="94" selection-end-column="15" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Project3/F2018-507-Project3/proj3_choc_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="63" column="56" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="34" column="145" selection-start-line="34" selection-start-column="145" selection-end-line="34" selection-end-column="145" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/final_project_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+        <state relative-caret-position="427">
+          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+            <marker date="1544481208381" expanded="true" signature="2012:2021" ph="..." />
+            <marker date="1544481208381" expanded="true" signature="3173:3182" ph="..." />
+            <marker date="1544481208381" expanded="true" signature="3701:3710" ph="..." />
+            <marker date="1544481208381" expanded="true" signature="3839:3841" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Housing_final.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2307">
-          <caret line="348" column="16" selection-start-line="348" selection-start-column="16" selection-end-line="348" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+        <state relative-caret-position="433">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
         </state>
       </provider>
     </entry>

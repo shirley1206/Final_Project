@@ -31,7 +31,8 @@ def housing():
         buildingtype = request.form['buildingtype']
         pet = request.form['pet']
         parking = request.form['parking']
-        housing = model.get_housing(bed=bed, bath=bath, pet=pet, parking=parking, buildingtype=buildingtype, sortorder=sortorder, sortby=sortby)
+        status = request.form['status']
+        housing = model.get_housing(bed=bed, bath=bath, pet=pet, parking=parking, buildingtype=buildingtype, sortorder=sortorder, sortby=sortby, status=status)
         result = len(housing)
         map = model.maponplotly(housing)
 
