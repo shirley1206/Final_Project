@@ -11,14 +11,21 @@ def index():
         housing = model.get_housing(search=search)
         result = len(housing)
         map = model.maponplotly(housing)
+        graph = model.graph(housing)
+        bar = model.bar(housing)
+
 
     else:
         housing = model.get_housing()
         result = len(housing)
         map = model.maponplotly(housing)
+        graph = model.graph(housing)
+        bar = model.bar(housing)
 
 
-    return render_template('housing.html', housing=housing, map=map, result=result)
+
+
+    return render_template('housing.html', housing=housing, map=map, graph=graph,result=result, bar=bar)
 
 
 @app.route('/filter', methods=['GET', 'POST'])
@@ -35,14 +42,21 @@ def housing():
         housing = model.get_housing(bed=bed, bath=bath, pet=pet, parking=parking, buildingtype=buildingtype, sortorder=sortorder, sortby=sortby, status=status)
         result = len(housing)
         map = model.maponplotly(housing)
+        graph = model.graph(housing)
+        bar = model.bar(housing)
+
+
 
     else:
         housing = model.get_housing()
         result = len(housing)
         map = model.maponplotly(housing)
+        graph = model.graph(housing)
+        bar = model.bar(housing)
 
 
-    return render_template('housing.html', housing=housing, map=map, result=result)
+
+    return render_template('housing.html', housing=housing, map=map, result=result, graph=graph, bar=bar)
 
 
 

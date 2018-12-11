@@ -141,6 +141,7 @@
                 <p class="col-lg-6">
                     <a class="btn btn-info float-left m-b-30 m-l-35" href="#table" role="button">List View</a>
                     <a role="button" class="btn btn-info m-b-30 m-l-10" href="#map">Map View</a>
+                    <a role="button" class="btn btn-info m-b-30 m-l-5" href="#graphs">Graphs</a>
                 </p>
                 <div class="col-lg-6">
                     <h6 class="m-b-30 text-right m-r-35" style="font-family: Poppins-Regular">Housing Found: {{result}}</h6>
@@ -195,7 +196,7 @@
                             <div class="cell" data-title="Type">
                                 {{h[4]}} </div>
                             <div class="cell" data-title="Rent">
-                                {{h[5]}} </div>
+                                ${{h[5]}} </div>
                             <div class="cell" data-title="Status">
                                 {{h[6]}} </div>
                             <div class="cell" data-title="Pet">
@@ -219,6 +220,23 @@
     <section id="map">
         <div>
             {{map|safe}}
+        </div>
+
+    </section>
+
+
+    <section id="graphs">
+        <div>
+            <h5 class="text-center">Building types of your choice</h5>
+            {{graph|safe}}
+        </div>
+
+    </section>
+
+    <section>
+        <div>
+            <h5 class="text-center">Average rent of your choice</h5>
+            {{bar|safe}}
         </div>
 
     </section>

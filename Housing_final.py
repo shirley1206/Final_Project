@@ -227,7 +227,7 @@ def populate_housing_db():
     'Bed' TEXT,
     'Bath' INTEGER,
     'BuildingTypeId' INTEGER,
-    'Rent' TEXT,
+    'Rent' INTEGER,
     'Status' TEXT,
     'PetPolicyId' INTEGER,
     'ParkingId' INTEGER,
@@ -340,7 +340,12 @@ def populate_housing_db():
             ParkingId = parking_type_dict[row[8]]
             PetId = pet_id_dict[row[7]]
 
-            insertion = (None, row[0], row[1], row[2], row[3], BuildingTypeId, row[5], row[6], PetId, ParkingId, row[9], row[10], row[11])
+            if row[5]!='Call for Pricing':
+                Rent = row[5].replace("$","").split('to')[0].strip()
+            else:
+                Rent =row[5]
+
+            insertion = (None, row[0], row[1], row[2], row[3], BuildingTypeId, Rent, row[6], PetId, ParkingId, row[9], row[10], row[11])
             statement = 'INSERT INTO "Housing"'
             statement += "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             cur.execute(statement, insertion)
